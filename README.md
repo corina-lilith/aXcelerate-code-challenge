@@ -16,4 +16,4 @@
 ## Run on Storybook
 
 - In a terminal, run the command npm run storybook
-- Click on the link to view it in your browser
+- Click on the link to view it in your browser/Wait for the browser to open automatically
