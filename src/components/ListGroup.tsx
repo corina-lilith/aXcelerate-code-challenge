@@ -18,7 +18,7 @@ const StyledList = styled(MuiList)`
 `;
 
 interface Person {
-  id: string | number;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
@@ -45,7 +45,6 @@ export default function ListGroup({ title, people, forceOpen }: ListGroupProps) 
 
   return (
     <StyledList
-
       aria-labelledby={`${title.toLowerCase()}-list-subheader`}
     >
       <ListItemButton onClick={handleListClick}>
