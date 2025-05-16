@@ -1,0 +1,72 @@
+[
+  {
+    "firstName": "Dianne",
+    "lastName": "Russell",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/dianne.png",
+    "hasAttended": true
+  },
+  {
+    "firstName": "Ronald",
+    "lastName": "Richards",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/ronald.png",
+    "hasAttended": true
+  },
+  {
+    "firstName": "Ariene",
+    "lastName": "McCoy",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/ariene.png",
+    "hasAttended": true
+  },
+  {
+    "firstName": "Kathryn",
+    "lastName": "Murphy",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/kathryn.png",
+    "hasAttended": true
+  },
+  {
+    "firstName": "Savannah",
+    "lastName": "Nguyen",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/savannah.png",
+    "hasAttended": true
+  },
+  {
+    "firstName": "Albert",
+    "lastName": "Flores",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/albert.png",
+    "hasAttended": true
+  },
+  {
+    "firstName": "Jenny",
+    "lastName": "Wilson",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/jenny.png",
+    "hasAttended": false
+  },
+  {
+    "firstName": "Wade",
+    "lastName": "Warren",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/wade.png",
+    "hasAttended": false
+  },
+  {
+    "firstName": "Bessie",
+    "lastName": "Cooper",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/bessie.png",
+    "hasAttended": false
+  },
+  {
+    "firstName": "Ralph",
+    "lastName": "Edwards",
+    "email": "jane@hotmail.com",
+    "imgUrl": "/ralph.png",
+    "hasAttended": false
+  }
+]
