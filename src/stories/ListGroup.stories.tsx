@@ -1,36 +1,21 @@
+import type { Meta } from '@storybook/react';
 import ListGroup from '../components/ListGroup';
+import people from '../../test/people';
 
-export default {
+const meta: Meta<typeof ListGroup> = {
   title: 'Components/ListGroup',
   component: ListGroup,
+  tags: ['autodocs'],
 };
 
-const samplePeople = [
-  {
-    id: 1,
-    firstName: 'Alice',
-    lastName: 'Johnson',
-    email: 'alice.johnson@example.com',
-    imgUrl: 'https://i.pravatar.cc/40?img=1',
-  },
-  {
-    id: 2,
-    firstName: 'Bob',
-    lastName: 'Smith',
-    email: 'bob.smith@example.com',
-    imgUrl: 'https://i.pravatar.cc/40?img=2',
-  },
-  {
-    id: 3,
-    firstName: 'Charlie',
-    lastName: 'Brown',
-    email: 'charlie.brown@example.com',
-    imgUrl: 'https://i.pravatar.cc/40?img=3',
-  },
-];
+export default meta;
 
-export const Default = () => <ListGroup title="Team Members" people={samplePeople} />;
+export const Default = () => <ListGroup title="Team Members" people={people} />;
 
 export const ForceOpen = () => (
-  <ListGroup title="Team Members" people={samplePeople} forceOpen={true} />
+  <ListGroup title="Team Members" people={people} forceOpen={true} />
+);
+
+export const HideEmail = () => (
+  <ListGroup title="Team Members" people={people} forceOpen={true} shouldDisplayEmail={false} />
 );

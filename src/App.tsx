@@ -12,22 +12,19 @@ interface Person {
   hasAttended: boolean;
 }
 
-export default function App() {
-  const [people, setPeople] = useState<Person[]>([]);
+interface AppProps {
+  people: Person[];
+}
+
+export const App: React.FC<AppProps> = (props) => {
+  const [people, setPeople] = useState<Person[]>(props.people);
   const [searchQuery, setSearchQuery] = useState('');
-  const [listsOpen, setListsOpen] = useState(false);
+  const [listsOpen, setListsOpen] = useState(true);
 
   useEffect(() => {
-    const fetchPeople = async () => {
-      const response = await fetch('/people.json');
-      const data = await response.json();
-      setPeople(data);
-    };
-
-    fetchPeople();
+    setPeople(people);
     setSearchQuery('');
-    setListsOpen(false);
-  }, []);
+  }, [people]);
 
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
@@ -37,10 +34,9 @@ export default function App() {
   const filterPeople = (group: Person[]) =>
     group.filter((person) => {
       const query = searchQuery.toLowerCase();
+      // match on first name only as per design
       return (
-        person.firstName.toLowerCase().includes(query) ||
-        person.lastName.toLowerCase().includes(query) ||
-        person.email.toLowerCase().includes(query)
+        person.firstName.toLowerCase().startsWith(query)
       );
     });
 
@@ -64,3 +60,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;

@@ -21,7 +21,7 @@ interface SearchFieldProps {
   value: string;
 }
 
-export default function SearchField({ onFocus, onSearchChange, value }: SearchFieldProps) {
+export const SearchField: React.FC<SearchFieldProps> = ({ onFocus, onSearchChange, value }) => {
   return (
     <div>
       <StyledBox>
@@ -47,4 +47,6 @@ export default function SearchField({ onFocus, onSearchChange, value }: SearchFi
       </StyledBox>
     </div>
   );
-}
+};
+
+export default SearchField;

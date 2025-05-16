@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import SearchField from '../src/components/SearchField';
+import SearchField from './SearchField';
 
 describe('SearchField', () => {
   it('calls onFocus when the input is focused', () => {

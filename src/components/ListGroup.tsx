@@ -29,16 +29,16 @@ interface ListGroupProps {
   title: string;
   people: Person[];
   forceOpen?: boolean;
+  shouldDisplayEmail?: boolean;
 }
 
-export default function ListGroup({ title, people, forceOpen }: ListGroupProps) {
+export const ListGroup: React.FC<ListGroupProps> = ({ title, people, forceOpen = false, shouldDisplayEmail = true }) => {
   const [openList, setOpenList] = useState(false);
 
   useEffect(() => {
-    if (forceOpen !== undefined) {
-      setOpenList(forceOpen);
-    }
+    setOpenList(forceOpen);
   }, [forceOpen]);
+
   const handleListClick = () => {
     setOpenList((prev) => !prev);
   };
@@ -63,7 +63,7 @@ export default function ListGroup({ title, people, forceOpen }: ListGroupProps) 
               </ListItemIcon>
               <ListItemText
                 primary={`${person.firstName} ${person.lastName}`}
-                secondary={person.email}
+                secondary={shouldDisplayEmail && person.email}
               />
             </ListItemButton>
           ))}
@@ -71,4 +71,6 @@ export default function ListGroup({ title, people, forceOpen }: ListGroupProps) 
       </Collapse>
     </StyledList>
   );
-}
+};
+
+export default ListGroup;

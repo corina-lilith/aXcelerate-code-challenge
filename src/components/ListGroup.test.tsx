@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import ListGroup from '../src/components/ListGroup';
+import ListGroup from './ListGroup';
 import '@testing-library/jest-dom';
 
 const peopleMock = [

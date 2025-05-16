@@ -1,19 +1,32 @@
-# React Component: Group List
+# aXcelerate code challenge
+
+A demo project showcasing a basic component library using the following core technologies:
+
+- TypeScript
+- React
+- Vitest
+- Storybook
+- Styled Components
 
 ## Installation
 
 - Clone the repo onto your device
-- In a terminal, run the command npm install
+- Run `npm install`
 
-### Run the tests
+### Testing
 
-- In a terminal, run the command npm run test
+- Run `npm run test`
 
-## Run the Dev environment and view on localhost
+## Development
 
-- In a terminal, run the command npm run dev
+- Run `npm run dev`
 
-## Run on Storybook
+## Storybook
 
-- In a terminal, run the command npm run storybook
-- Click on the link to view it in your browser/Wait for the browser to open automatically
+- Run `npm run storybook`
+- Click on the link to view it in your browser / Wait for the browser to open automatically
+
+## Release
+
+- Run `npm run build`
+- The compiled output will be available in the `dist` folder
