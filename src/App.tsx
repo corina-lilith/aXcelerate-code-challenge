@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import './App.css';
+import ListGroup from './components/ListGroup';
+import SearchField from './components/SearchField';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Chicken
-      </p>
-    </>
-  )
+interface Person {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  imgUrl: string;
+  hasAttended: boolean;
 }
 
-export default App
+export default function App() {
+  const [people, setPeople] = useState<Person[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [listsOpen, setListsOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchPeople = async () => {
+      const response = await fetch('/people.json');
+      const data = await response.json();
+      setPeople(data);
+    };
+
+    fetchPeople();
+    setSearchQuery('');
+    setListsOpen(false);
+  }, []);
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    setListsOpen(!!value);
+  };
+
+  const filterPeople = (group: Person[]) =>
+    group.filter((person) => {
+      const query = searchQuery.toLowerCase();
+      return (
+        person.firstName.toLowerCase().includes(query) ||
+        person.lastName.toLowerCase().includes(query) ||
+        person.email.toLowerCase().includes(query)
+      );
+    });
+
+  const attended = filterPeople(people.filter((p) => p.hasAttended));
+  const absent = filterPeople(people.filter((p) => !p.hasAttended));
+
+  return (
+    <div style={{ padding: '2rem' }}>
+      <SearchField
+        value={searchQuery}
+        onFocus={() => setListsOpen(true)}
+        onSearchChange={handleSearchChange}
+      />
+
+      {listsOpen && (
+        <>
+          <ListGroup title="Attended" people={attended} forceOpen={listsOpen} />
+          <ListGroup title="Absent" people={absent} forceOpen={listsOpen} />
+        </>
+      )}
+    </div>
+  );
+}
